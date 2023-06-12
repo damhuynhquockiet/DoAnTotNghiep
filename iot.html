@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ĐỒ ÁN TỐT NGHIỆP</title>
+    <link rel="stylesheet" href="iot.css">
+</head>
+
+<body>
+
+    <!-- header of web -->
+    <div id="header">
+        <ul>
+            <li>
+                <center>MÔ HÌNH VƯỜN THÔNG MINH THEO TIÊU CHUẨN VIETGAP</center>
+            </li>
+        </ul>
+    </div>
+
+    <!-- create buttons (navigators) -->
+    <button class="tablink" onclick="openPage('Bedroom', this, 'red')">SLAVE-1</button>
+    <button class="tablink" onclick="openPage('Livingroom', this, 'yellow')" id="defaultOpen">GIÁM SÁT VÀ ĐIỀU KHIỂN</button>
+    <button class="tablink" onclick="openPage('Kitchen', this, 'green')">SLAVE-2</button>
+
+    <!-- display real time -->
+    <div id="time">
+        <script>
+            function dongho() {
+                var time = new Date();
+                var gio = time.getHours();
+                var phut = time.getMinutes();
+                var giay = time.getSeconds();
+                if (gio < 10)
+                    gio = "0" + gio;
+                if (phut < 10)
+                    phut = "0" + phut;
+                if (giay < 10)
+                    giay = "0" + giay;
+                document.getElementById("time").innerHTML = gio + ":" + phut + ":" + giay;
+                setTimeout("dongho()", 1000);
+            };
+            dongho();
+        </script>
+    </div>
+
+    <!-- this is bedroom -->
+    <div id="Bedroom" class="tabcontent">
+        <div class="row1">
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Temperature: <span id="nhietdo1"></span></h1>
+                <h3><img src="img\temperature.png" id="temp1"></h3>
+            </div>
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Humidity: <span id="doam1"></span></h1>
+                <h3><img src="img\humidity.png" id="humi1"></h3>
+            </div>
+        </div>
+
+        <div class="row2">
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Lux: <span id="anhsang"></span></h1>
+                <h3><img src="img\LUX.png" id="lux"></h3>
+            </div>
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Soil: <span id="doamdat1"></span></h1>
+                <h3><img src="img\SOIL.png" id="soil1"></h3>
+            </div>
+        </div>
+    </div>
+    <!--end of bedroom-->
+
+    <!-- this is livingroom -->
+    <div id="Livingroom" class="tabcontent">
+        <div class="row1">
+
+            <div class="column3">
+                <h3><img src="img\light_bulb_off.png" id="light_1">
+                    <h1 style="color:rgb(17, 0, 255)">light_1</h1>
+                    <button type="button" id="btnon1"><h1>ON</h1></button>
+                    <button type="button" id="btnoff1"><h1>OFF</h1></button>
+                </h3>
+            </div>
+            
+            <div class="column3">
+                <h3><img src="img\wateringplant.png" id="pump_1">
+                    <h1 style="color:rgb(17, 0, 255)">pump_1</h1>
+                </h3>
+            </div>
+
+            <div class="column3">
+                <h3><img src="img\wateringplant.png" id="pump_2">
+                    <h1 style="color:rgb(17, 0, 255)">pump_2</h1>
+                </h3>
+            </div>
+
+
+            
+            <div class="column3">
+                <h3><img src="img\light_bulb_off.png" id="light_2">
+                    <h1 style="color:rgb(17, 0, 255)">light_2</h1>
+                    <button type="button" id="btnon2"><h1>ON</h1></button>
+                    <button type="button" id="btnoff2"><h1>OFF</h1></button>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row2">
+            <div class="column1">
+                <h3><img src="img\fan_off.png" id="fan_1">
+                    <h1 style="color:rgb(17, 0, 255)">fan_1</h1>
+                </h3>
+            </div>
+            <div class="column1">
+                <h3><img src="img\snow_off.png" id="mist">
+                    <h1 style="color:rgb(17, 0, 255)">mist</h1>
+                </h3>
+            </div>
+            <div class="column1">
+                <h3><img src="img\transfer_off.png" id="transfer">
+                    <h1 style="color:rgb(17, 0, 255)">transfer</h1>
+                    <button type="button" id="btnon3"><h1>AUTO</h1></button>
+                    <button type="button" id="btnoff3"><h1>HANDMADE</h1></button>
+                </h3>
+            </div>
+            <div class="column1">
+                <h3><img src="img\roof_off.png" id="roof">
+                    <h1 style="color:rgb(17, 0, 255)">roof</h1>
+                </h3>
+            </div>
+            <div class="column1">
+                <h3><img src="img\fan_off.png" id="fan_2">
+                    <h1 style="color:rgb(17, 0, 255)">fan_2</h1>
+                </h3>
+            </div>
+        </div>       
+    </div>
+    <!--end of livingroom-->
+
+    <!--this is kitchen-->
+    <div id="Kitchen" class="tabcontent">
+        <div class="row1">
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Temperature: <span id="nhietdo2"></span></h1>
+                <h3><img src="img\temperature.png" id="temp2"></h3>
+            </div>
+            <div class="column">
+                <h1 style="color:rgb(17, 0, 255)">Humidity: <span id="doam2"></span></h1>
+                <h3><img src="img\humidity.png" id="humi2"></h3>
+            </div>
+        </div>
+
+        <div class="row2">
+            <div class="column2">
+                <h1 style="color:rgb(17, 0, 255)">Soil: <span id="doamdat2"></span></h1>
+                <h3><img src="img\SOIL.png" id="soil2"></h3>
+            </div>
+        </div>
+    </div>
+    <!--end of kitchen-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script src="iot.js"></script>
+</body>
+
+<!-- footer of web -->
+<footer>
+    <div class="row2">
+        <div class="column">
+            <h1 style="color:rgb(19, 19, 21)"><a href="https://www.facebook.com/profile.php?id=100037412267915">Contact Info: Q.Kiet</a></h1>
+            <h1><img src="img\kiệt.jpg" id="thong"> </h1>
+        </div>
+        <div class="column">
+            <h1 style="color:rgb(19, 19, 21)"><a href="https://www.facebook.com/thong.tieu.313">Contact Info:V.Thong</a></h1>
+            <h1><img src="img\thong.jpg" id="kiet"></h1>
+        </div>
+    </div>
+
+    <!-- table to display information -->
+    <table id="table">
+        <tr>
+            <th style="width:50%">
+            <h1>
+                Đàm Huỳnh Quốc Kiệt
+            </h1>    
+            </th>
+            <th style="width:50%">
+            <h1>
+                Tiêu Viết Thông
+            </h1>
+            </th>
+        </tr>
+
+        <tr>
+
+            <th><h1>19161123</h1></th>
+            <th><h1>19161170</h1></th>
+        </tr>
+    </table>
+
+    <!-- contact information -->
+    <!--
+    <center>
+        <h4>Contact: 02345xuyzdw </h4>
+        <h4>Email: helpmegetouttahere@gmail.com </h4>
+        <h4>Address: 1, Vo Van Ngan, Thu Duc City, HCM City </h4>
+    </center>
+    -->
+
+</footer>
+
+</html>
